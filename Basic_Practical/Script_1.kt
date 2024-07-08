@@ -7,3 +7,4 @@ fun main() {
     println("College Name is : $CollegeName")
 }
 
+

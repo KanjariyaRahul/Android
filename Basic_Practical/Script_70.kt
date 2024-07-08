@@ -91,7 +91,7 @@ fun main() {
         }
         println()
     }
-    //7)
+    //6)
     // X 0 0 0 0
     // X X 0 0 0
     // X X X 0 0
@@ -234,7 +234,7 @@ fun main() {
     // 1 0 1
     // 1 0 1 0
     // 1 0 1 0 1
-    println("--------- 14 pattern ----------")
+    println("--------- 15 pattern ----------")
 
     for( i in 1 .. 5 ){
         for( j in  1 .. i){
@@ -252,7 +252,7 @@ fun main() {
     // D E F
     // G H I J
     // K L M N O
-    println("--------- 15 pattern ----------")
+    println("--------- 16 pattern ----------")
 
     var char ='A'
     for (i in  1 .. 5){
@@ -269,7 +269,7 @@ fun main() {
     //  ***
     // ****
     //*****
-    println("--------- 16 pattern ----------")
+    println("--------- 17 pattern ----------")
 
     for (i in 1..5) {
         for (j in 1..(5 - i)) {
@@ -281,11 +281,35 @@ fun main() {
         println()
     }
 
-    println("--------- 17 pattern ----------")
+    //18)
+    // * * * * *
+    // * * * *
+    // * * *
+    // * *
+    // *
+    println("--------- 18 pattern ----------")
 
-    for( i in 5 downTo  1){
-        for( k in  1 .. i){
-            print("*")
+    for(i in 1 .. 5){
+        for (j in 5 downTo i){
+            print("* ")
+        }
+        println()
+    }
+
+    //19)
+    //    *
+    //   * *
+    //  * * *
+    // * * * *
+    //* * * * *
+    println("--------- 19 pattern ----------")
+
+    for( i in 1 ..  5){
+        for (j in 1..(5 - i)) {
+            print(" ")
+        }
+        for (k in 1..i) {
+            print("* ")
         }
         println()
     }
