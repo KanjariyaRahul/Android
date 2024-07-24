@@ -1,9 +1,11 @@
 package com.example.framelayout_pb_sb_rb
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RatingBar
 import android.widget.SeekBar
+
 import android.widget.TextView
 
 class MainActivity2 : AppCompatActivity() {

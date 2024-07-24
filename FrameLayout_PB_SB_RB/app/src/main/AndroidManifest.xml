@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.framelayout_pb_sb_rb">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -13,6 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FrameLayout_PB_SB_RB"
         tools:targetApi="31">
+        <activity
+            android:name=".Seek_Rating_BarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ButtonsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Date_Time_PickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TextViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
                 pb.secondaryProgress = count + 10
 
                 if(count >=100){
-                    var i = Intent(this,MainActivity2::class.java)
+                    var i = Intent(this,HomeActivity::class.java)
                     startActivity(i)
                 }
             }
