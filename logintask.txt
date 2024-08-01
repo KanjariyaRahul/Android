@@ -1,0 +1,8 @@
+create an application that will run follwing:
+1.create a splash screen 
+2.create an activity that will help user to login in that application,in this activity there is an option to register user,after successfull login the user will move to display activity
+3.create an activity will help you to display all the data of registed user.
+4.provide a button to edit the detail
+5.when user click on register user button in the login activity,the following details will be entered by user and the user detail will be stored in to the shered prefernce like surname,name,email,password,dob,gender,city.
+
+note : provide a better user experince for usre convince.
