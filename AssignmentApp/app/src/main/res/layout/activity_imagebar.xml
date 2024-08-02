@@ -37,7 +37,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="507dp"
         app:srcCompat="@drawable/kotlin"
-        android:contentDescription="Description of the image button" />
+        />
 
     <ImageView
         android:id="@+id/imageView"

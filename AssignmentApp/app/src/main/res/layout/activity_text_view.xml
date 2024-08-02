@@ -87,13 +87,14 @@
         android:id="@+id/actvcity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:hint="Select City"
+        android:layout_marginBottom="16dp"
         android:completionThreshold="1"
+        android:hint="Select City"
         android:minHeight="48dp"
         android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 

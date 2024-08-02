@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
 
 
         var textView : TextView = findViewById(R.id.textView3)
-
         var actvcity : AutoCompleteTextView = findViewById(R.id.actvcity)
+        
         var city = arrayOf("jamnagr", "rajkot" , "Surat" , "Baroda")
         var adpter = ArrayAdapter<String>(this ,android.R.layout.simple_selectable_list_item ,city )
         actvcity.setAdapter(adpter)

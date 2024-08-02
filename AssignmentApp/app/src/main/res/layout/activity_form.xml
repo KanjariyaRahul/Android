@@ -65,10 +65,9 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:padding="12dp"
-        android:ems="10"
         android:lines="3"
         android:hint="Enter Your Address"
-        android:gravity="start|top"
+        android:gravity="start"
         android:inputType="textMultiLine" />
 
     <AutoCompleteTextView

@@ -20,13 +20,12 @@ class Form : AppCompatActivity() {
         var etTime : EditText = findViewById(R.id.editTextTime)
         var cal = Calendar.getInstance()
 
-
-
         var actvCity : AutoCompleteTextView = findViewById(R.id.actiCity)
 
         var city = arrayOf("rajkot", "jamnagr", "Ahmedabad" , "Baroda" , "junagadh" , "Bhavanagar")
         var adapter = ArrayAdapter<String>(this , android.R.layout.simple_spinner_dropdown_item, city)
         actvCity.setAdapter(adapter)
+
 
 
         var macktvSkill : MultiAutoCompleteTextView = findViewById(R.id.mactvSkill)
@@ -35,6 +34,7 @@ class Form : AppCompatActivity() {
         var skillAdapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_checked , skills)
         macktvSkill.setAdapter(skillAdapter)
         macktvSkill.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
+
 
         etEmail.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -46,9 +46,13 @@ class Form : AppCompatActivity() {
                     etEmail.setError("Invalid Input")
                 }
             }
+
             override fun afterTextChanged(p0: Editable?) {
+
             }
+
         })
+
 
         etDate.setOnClickListener {
             DatePickerDialog(this , DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->

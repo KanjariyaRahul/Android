@@ -14,21 +14,40 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // Initialize UI elements
-        val login: TextView = findViewById(R.id.login)
-        val editSurname: EditText = findViewById(R.id.editSurname)
-        val editName: EditText = findViewById(R.id.editName)
-        val editEmail: EditText = findViewById(R.id.editEmail)
-        val editPassword: EditText = findViewById(R.id.editPassword)
-        val editDob: EditText = findViewById(R.id.editdob)
-        val gender: RadioGroup = findViewById(R.id.ReadioGroup)
-        val editCity: AutoCompleteTextView = findViewById(R.id.editCity)
-        val btnRegister: Button = findViewById(R.id.btnregister)
-        val calendar = Calendar.getInstance()
+        var login: TextView = findViewById(R.id.login)
+        var editSurname: EditText = findViewById(R.id.editSurname)
+        var editName: EditText = findViewById(R.id.editName)
+        var editEmail: EditText = findViewById(R.id.editEmail)
+        var editPassword: EditText = findViewById(R.id.editPassword)
+        var editDob: EditText = findViewById(R.id.editdob)
+        var gender: RadioGroup = findViewById(R.id.ReadioGroup)
+        var editCity: AutoCompleteTextView = findViewById(R.id.editCity)
+        var btnRegister: Button = findViewById(R.id.btnregister)
+        var calendar = Calendar.getInstance()
 
         // Get SharedPreferences
         val sp = getSharedPreferences("registerData", Context.MODE_PRIVATE)
         val editor = sp.edit()
 
+
+        if (intent != null && intent.hasExtra("EMAIL")) {
+            val email = intent.getStringExtra("EMAIL")
+            editSurname.setText(sp.getString("editSurname", ""))
+            editName.setText(sp.getString("editName", ""))
+            editEmail.setText(email)
+            editEmail.isEnabled = false
+            editPassword.setText(sp.getString("editPassword", ""))
+            editDob.setText(sp.getString("editdob", ""))
+
+            val genderValue = sp.getString("gender", "")
+            if (genderValue == "Male") {
+                gender.check(R.id.radmale)
+            } else if (genderValue == "Female") {
+                gender.check(R.id.radfemale)
+            }
+
+            editCity.setText(sp.getString("editCity", ""))
+        }
         // Login button listener
         login.setOnClickListener {
             val intent = Intent(this, Login::class.java)
@@ -53,36 +72,31 @@ class Register : AppCompatActivity() {
             }
 
             // Save data to SharedPreferences
-            editor.apply {
-                putString("editSurname", editSurname.text.toString())
-                putString("editName", editName.text.toString())
-                putString("editEmail", editEmail.text.toString())
-                putString("editPassword", editPassword.text.toString())
-                putString("editdob", editDob.text.toString())
-                putString("gender", selectedGender)
-                putString("editCity", editCity.text.toString())
-                apply() // Use apply() for asynchronous commit
-            }
+            editor.putString("editSurname", editSurname.text.toString())
+            editor.putString("editName", editName.text.toString())
+            editor.putString("editEmail", editEmail.text.toString())
+            editor.putString("editPassword", editPassword.text.toString())
+            editor.putString("editdob", editDob.text.toString())
+            editor.putString("gender", selectedGender)
+            editor.putString("editCity", editCity.text.toString())
+            editor.commit()
+
 
             // Show a toast message
             Toast.makeText(applicationContext, "Data Saved!!", Toast.LENGTH_LONG).show()
 
             // Navigate to DisplayActivity
-            val intent = Intent(this, DisplayActivity::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
 
             // Clear input fields (optional, if you want to clear the fields after saving)
-            clearInputFields()
+            editSurname.setText("")
+            editName.setText("")
+            editEmail.setText("")
+            editPassword.setText("")
+            editDob.setText("")
+            gender.clearCheck()
+            editCity.setText("")
         }
-    }
-
-    private fun clearInputFields() {
-        findViewById<EditText>(R.id.editSurname).setText("")
-        findViewById<EditText>(R.id.editName).setText("")
-        findViewById<EditText>(R.id.editEmail).setText("")
-        findViewById<EditText>(R.id.editPassword).setText("")
-        findViewById<EditText>(R.id.editdob).setText("")
-        findViewById<RadioGroup>(R.id.ReadioGroup).clearCheck()
-        findViewById<AutoCompleteTextView>(R.id.editCity).setText("")
     }
 }

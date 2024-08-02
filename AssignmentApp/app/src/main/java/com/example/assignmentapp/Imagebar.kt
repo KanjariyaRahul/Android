@@ -45,7 +45,6 @@ class Imagebar : AppCompatActivity() {
         var str : String
         var textview : TextView = findViewById(R.id.textView2)
 
-
         ch1.setOnClickListener {
             str = "Java : ${ch1.isChecked}\n Kotlin : ${ch2.isChecked}\nAndroid : ${ch3.isChecked}"
             textview.setText(str)
