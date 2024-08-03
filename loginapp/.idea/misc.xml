@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/my_github/Android/loginapp/app/src/main/res/layout/activity_display.xml" value="0.5" />
+        <entry key="..\:/my_github/Android/loginapp/app/src/main/res/layout/activity_main.xml" value="0.2814814814814815" />
         <entry key="..\:/rahul/Android/loginapp/app/src/main/res/layout/activity_display.xml" value="0.3625" />
         <entry key="..\:/rahul/Android/loginapp/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/rahul/Android/loginapp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
@@ -10,7 +12,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

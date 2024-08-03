@@ -18,12 +18,14 @@ class Login : AppCompatActivity() {
         var btnLogin : Button = findViewById(R.id.btnLogin);
         var btnRegister : TextView = findViewById(R.id.btnRegister);
 
+
+
         btnLogin.setOnClickListener {
             var email = etEmail.text.toString()
             var password = etPassword.text.toString()
             var sp = getSharedPreferences("registerData", MODE_PRIVATE)
-            var savedEmail = sp.getString("email", "")
-            var savedPassword = sp.getString("password", "")
+            var savedEmail = sp.getString("editEmail", "")
+            var savedPassword = sp.getString("editPassword", "")
 
             if (email == savedEmail && password == savedPassword) {
                 val intent = Intent(this, DisplayActivity::class.java)
@@ -38,5 +40,6 @@ class Login : AppCompatActivity() {
             var i = Intent(this,Register::class.java)
             startActivity(i)
         }
+
     }
 }

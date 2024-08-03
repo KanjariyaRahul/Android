@@ -20,6 +20,7 @@ class DisplayActivity : AppCompatActivity() {
         val tvGender: TextView = findViewById(R.id.tvGender)
         val tvCity: TextView = findViewById(R.id.tvCity)
         val btnEdit: Button = findViewById(R.id.btnEdit)
+        var logout : Button = findViewById(R.id.logout)
 
         // Get SharedPreferences
         val sp = getSharedPreferences("registerData", Context.MODE_PRIVATE)
@@ -37,6 +38,11 @@ class DisplayActivity : AppCompatActivity() {
             val intent = Intent(this, Register::class.java)
             intent.putExtra("EMAIL", tvEmail.text.toString())
             startActivity(intent)
+        }
+
+        logout.setOnClickListener {
+            var i = Intent(this,Login::class.java)
+            startActivity(i)
         }
     }
 }
