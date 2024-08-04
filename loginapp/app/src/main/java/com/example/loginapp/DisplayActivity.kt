@@ -1,13 +1,17 @@
 package com.example.loginapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 
 class DisplayActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
@@ -22,9 +26,10 @@ class DisplayActivity : AppCompatActivity() {
         val btnEdit: Button = findViewById(R.id.btnEdit)
         var logout : Button = findViewById(R.id.logout)
 
+
+
         // Get SharedPreferences
         val sp = getSharedPreferences("registerData", Context.MODE_PRIVATE)
-
         // Retrieve and display data from SharedPreferences
         tvName.text = sp.getString("editName", "")
         tvSurname.text = sp.getString("editSurname", "")

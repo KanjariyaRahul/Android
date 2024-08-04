@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:lottie_rawRes="@raw/loding"
+        app:lottie_rawRes="@raw/works"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-    />
+        app:lottie_speed="0.5"
+        app:lottie_cacheComposition="true"
+        app:lottie_loop="true"/>
+
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="550dp"
         android:padding="30dp"
         android:layout_height="wrap_content"
-        />
+        android:progress="50"
+        android:max="100"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/custom_progress_bar" />
 
 
 
