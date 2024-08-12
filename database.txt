@@ -1,0 +1,11 @@
+Database :
+====================
+step : 1 
+ - create a .kt file named is MyDBHelper that have a class name is MyDBelper
+
+step : 2
+ - inherite SqLiteOpenHelper class in the my MyDBHelper 
+
+step : 3
+ - override onCreate() and onUpgrade()
+    
