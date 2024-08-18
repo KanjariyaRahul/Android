@@ -3,14 +3,14 @@
     <item android:id="@android:id/background">
         <shape>
             <corners android:radius="5dp" />
-            <solid android:color="#E0E0E0" /> <!-- Background color -->
+            <solid android:color="#050505" /> <!-- Background color -->
         </shape>
     </item>
     <item android:id="@android:id/secondaryProgress">
         <clip>
             <shape>
                 <corners android:radius="5dp" />
-                <solid android:color="#B3B3B3" /> <!-- Secondary progress color -->
+                <solid android:color="#000000" /> <!-- Secondary progress color -->
             </shape>
         </clip>
     </item>

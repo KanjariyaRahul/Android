@@ -33,8 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="INSERT"
-            android:layout_margin="5dp"
-            android:textSize="20dp"/>
+            android:layout_margin="1dp"
+           />
 
         <Button
             android:id="@+id/btn_Update"
@@ -42,8 +42,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="UPDATE"
-            android:layout_margin="5dp"
-            android:textSize="20dp"/>
+            android:layout_margin="1dp"
+           />
+        <Button
+            android:id="@+id/btn_Detele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DELETE"
+            android:layout_margin="1dp"
+           />
 
         <Button
             android:id="@+id/btn_Clear"
@@ -51,8 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="CLEAR"
-            android:layout_margin="5dp"
-            android:textSize="20dp"/>
+            android:layout_margin="1dp"
+           />
 
     </LinearLayout>
 
