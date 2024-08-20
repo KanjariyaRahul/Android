@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
+import android.widget.SimpleCursorAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn_Perv : Button
     lateinit var btn_First : Button
     lateinit var btn_Last : Button
+    lateinit var showlist : ListView
+    lateinit var btn_Showdata : Button
     lateinit var  rs : Cursor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         btn_Perv = findViewById(R.id.btn_Perv)
         btn_First = findViewById(R.id.btn_First)
         btn_Last  = findViewById(R.id.btn_Last)
-
+        showlist = findViewById(R.id.showList)
+        btn_Showdata = findViewById(R.id.btn_showdata)
 
         var helper = MyDBHelper(applicationContext)
         var db = helper.writableDatabase
@@ -129,6 +134,23 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Data Note Found !!", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+        var fromColumns = arrayOf("Sname", "Sem")
+        var toViews = intArrayOf(android.R.id.text1, android.R.id.text2)
+        var adapter = SimpleCursorAdapter(this,android.R.layout.simple_list_item_2,   rs, fromColumns, toViews, 0)
+        showlist.adapter = adapter
+
+
+        btn_Showdata.setOnClickListener {
+            showlist.setOnItemClickListener { adapterView, view, i, id ->
+                rs.moveToPosition(i)
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+        }
+
+
     }
 
     private fun clear() {
