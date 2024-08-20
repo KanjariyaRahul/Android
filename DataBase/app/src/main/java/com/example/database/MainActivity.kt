@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn_Clear : Button
     lateinit var btn_Update : Button
     lateinit var btn_Delete : Button
+    lateinit var btn_Next : Button
+    lateinit var btn_Perv : Button
+    lateinit var btn_First : Button
+    lateinit var btn_Last : Button
     lateinit var  rs : Cursor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         btn_Clear = findViewById(R.id.btn_Clear)
         btn_Update = findViewById(R.id.btn_Update)
         btn_Delete = findViewById(R.id.btn_Detele)
+        btn_Next = findViewById(R.id.btn_Next)
+        btn_Perv = findViewById(R.id.btn_Perv)
+        btn_First = findViewById(R.id.btn_First)
+        btn_Last  = findViewById(R.id.btn_Last)
 
 
         var helper = MyDBHelper(applicationContext)
@@ -68,6 +76,58 @@ class MainActivity : AppCompatActivity() {
 
         btn_Clear.setOnClickListener {
             clear()
+        }
+
+        btn_Next.setOnClickListener {
+            if(rs.moveToNext())
+            {
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else if(rs.moveToFirst())
+            {
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else{
+                Toast.makeText(applicationContext, "Data Not found !!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btn_Perv.setOnClickListener {
+            if(rs.moveToPrevious())
+            {
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else if(rs.moveToFirst())
+            {
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else{
+                Toast.makeText(applicationContext, "Data Not found !!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btn_First.setOnClickListener {
+            if(rs.moveToFirst()){
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else{
+                Toast.makeText(applicationContext, "Data Note Found !!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btn_Last.setOnClickListener {
+            if(rs.moveToLast()){
+                ed_Sname.setText(rs.getString(1))
+                ed_Sem.setText(rs.getString(2))
+            }
+            else{
+                Toast.makeText(applicationContext, "Data Note Found !!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
