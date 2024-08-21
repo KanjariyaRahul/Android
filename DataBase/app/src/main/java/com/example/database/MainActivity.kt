@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
             var toViews = intArrayOf(R.id.textname , R.id.textsem)
             var adapter = SimpleCursorAdapter(applicationContext,R.layout.my_layout,   rs, fromColumns, toViews)
             showlist.adapter = adapter
-            
+
         }
 
 
