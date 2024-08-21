@@ -4,11 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.SimpleCursorAdapter
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn_Last : Button
     lateinit var showlist : ListView
     lateinit var btn_Showdata : Button
+    lateinit var  search_data : SearchView
     lateinit var  rs : Cursor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         btn_Last  = findViewById(R.id.btn_Last)
         showlist = findViewById(R.id.showList)
         btn_Showdata = findViewById(R.id.btn_showdata)
+        search_data = findViewById(R.id.search_data)
 
         var helper = MyDBHelper(applicationContext)
         var db = helper.writableDatabase
@@ -149,9 +147,21 @@ class MainActivity : AppCompatActivity() {
             var adapter = SimpleCursorAdapter(applicationContext,R.layout.my_layout,   rs, fromColumns, toViews)
             showlist.adapter = adapter
 
+            search_data.queryHint = ("Search Among ${rs.count} Records")
+            search_data.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                   return false
+                }
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    rs = db.rawQuery("select Sid _id , Sname , Sem from Student where Sname like '%${p0}%'",null)
+                    adapter.changeCursor(rs)
+                  return false
+                }
+
+            })
+
         }
-
-
     }
 
     private fun clear() {

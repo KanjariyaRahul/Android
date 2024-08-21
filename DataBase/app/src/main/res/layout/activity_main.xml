@@ -8,6 +8,13 @@
     android:layout_margin="10dp"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/search_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F2FF"
+        />
+
     <EditText
         android:id="@+id/ed_Sname"
         android:layout_width="match_parent"
