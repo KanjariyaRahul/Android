@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             cv.put("Sname",ed_Sname.text.toString())
             cv.put("Sem",ed_Sem.text.toString())
             db.insert("Student" , null ,cv)
+            rs = db.rawQuery("Select Sid _id , Sname , Sem FROM Student ",null)
             showMessage("Record Inserted Successfully")
         }
         btn_Update.setOnClickListener {
@@ -136,18 +137,18 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        var fromColumns = arrayOf("Sname", "Sem")
-        var toViews = intArrayOf(android.R.id.text1, android.R.id.text2)
-        var adapter = SimpleCursorAdapter(this,android.R.layout.simple_list_item_2,   rs, fromColumns, toViews, 0)
-        showlist.adapter = adapter
+//        var fromColumns = arrayOf("Sname", "Sem")
+//        var toViews = intArrayOf(android.R.id.text1, android.R.id.text2)
+//        var adapter = SimpleCursorAdapter(this,android.R.layout.simple_list_item_2,   rs, fromColumns, toViews, 0)
+//        showlist.adapter = adapter
 
 
         btn_Showdata.setOnClickListener {
-            showlist.setOnItemClickListener { adapterView, view, i, id ->
-                rs.moveToPosition(i)
-                ed_Sname.setText(rs.getString(1))
-                ed_Sem.setText(rs.getString(2))
-            }
+            var fromColumns = arrayOf("Sname", "Sem")
+            var toViews = intArrayOf(R.id.textname , R.id.textsem)
+            var adapter = SimpleCursorAdapter(applicationContext,R.layout.my_layout,   rs, fromColumns, toViews)
+            showlist.adapter = adapter
+            
         }
 
 
