@@ -15,7 +15,6 @@ import android.widget.SearchView
 import android.widget.SimpleCursorAdapter
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -99,26 +98,19 @@ class MainActivity : AppCompatActivity() {
         listView.setOnItemClickListener { _, _, position, _ ->
             rs?.let {
                 if (it.moveToPosition(position)) {
-                    val phoneNumber = it.getString(it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                    val phoneNumber =
+                        it.getString(it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
                     if (!phoneNumber.isNullOrEmpty()) {
-                        makeCall(phoneNumber)
+                        val dialIntent = Intent(Intent.ACTION_DIAL).apply {
+                            data = Uri.parse("tel:$phoneNumber")
+                        }
+                        startActivity(dialIntent)
                     }
                 }
             }
         }
     }
 
-
-    private fun makeCall(phoneNumber: String) {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE),112)
-        } else {
-            val intent = Intent(Intent.ACTION_CALL).apply {
-                data = Uri.parse("tel:$phoneNumber")
-            }
-            startActivity(intent)
-        }
-    }
     override fun onRestart() {
         super.onRestart()
         readcontact()
