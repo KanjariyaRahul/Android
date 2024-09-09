@@ -83,15 +83,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_Next.setOnClickListener {
-            if(rs.moveToNext())
+            if(rs.moveToNext() )
             {
+
                 ed_Sname.setText(rs.getString(1))
                 ed_Sem.setText(rs.getString(2))
+
             }
             else if(rs.moveToFirst())
             {
                 ed_Sname.setText(rs.getString(1))
                 ed_Sem.setText(rs.getString(2))
+
             }
             else{
                 Toast.makeText(applicationContext, "Data Not found !!", Toast.LENGTH_SHORT).show()
@@ -133,12 +136,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Data Note Found !!", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-//        var fromColumns = arrayOf("Sname", "Sem")
-//        var toViews = intArrayOf(android.R.id.text1, android.R.id.text2)
-//        var adapter = SimpleCursorAdapter(this,android.R.layout.simple_list_item_2,   rs, fromColumns, toViews, 0)
-//        showlist.adapter = adapter
 
 
         btn_Showdata.setOnClickListener {
